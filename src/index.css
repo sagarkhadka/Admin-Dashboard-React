@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html {font-size: 100%;} /*16px*/
+html {font-size: 112.5%;} /*16px*/
 
 body {
   font-family: 'Outfit', sans-serif;
@@ -33,3 +33,19 @@ h4 {font-size: 1.563rem;}
 h5 {font-size: 1.25rem;}
 
 small, .text_small {font-size: 0.8rem;}
+
+@layer components {
+  .side-link {
+    @apply font-semibold py-2.5 flex items-center justify-between rounded px-2 cursor-pointer transition-colors duration-150 text-dark-grey
+    hover:bg-indigo-100 hover:text-indigo-600
+  }
+
+  .side-link-title {
+    @apply flex items-center gap-3 
+  }
+
+  .side-link-content {
+    @apply py-1.5 rounded px-2 cursor-pointer transition-colors duration-150 text-dark-grey
+    hover:bg-indigo-100 hover:text-indigo-600
+  }
+}
