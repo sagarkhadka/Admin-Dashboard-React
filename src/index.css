@@ -41,7 +41,7 @@ small, .text_small {font-size: 0.8rem;}
   }
 
   .side-link-title {
-    @apply flex items-center gap-3 
+    @apply flex items-center gap-3
   }
 
   .side-link-content {
