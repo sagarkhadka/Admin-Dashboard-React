@@ -1,17 +1,10 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { BiHomeAlt, BiTrendingUp, BiChevronDown } from 'react-icons/bi'
 import { CgMenuLeft } from 'react-icons/cg'
-
-interface state {
-  first: boolean
-  second: boolean
-}
+import { BsPersonCircle } from 'react-icons/bs'
 
 const Sidemenu = () => {
-  // const [isClicked, setisClicked] = useState({
-  //   first: false,
-  //   second: false,
-  // })
   const [isClicked, setisClicked] = useState(false)
 
   const [isOpen, setIsOpen] = useState(true)
@@ -29,7 +22,7 @@ const Sidemenu = () => {
   })
   return (
     <>
-      <div className={`${isOpen ? 'w-96' : 'w-fit'} bg-light-grey px-5 py-6 min-h-screen space-y-5 duration-200`}>
+      <div className={`${isOpen ? 'w-72' : 'w-fit'} bg-light-grey px-5 py-6 min-h-screen space-y-5 duration-200`}>
         <div className='flex gap-1 items-center'>
           <div
             className='cursor-pointer p-2 rounded duration-200 hover:text-indigo-600 hover:bg-indigo-200'
@@ -43,21 +36,25 @@ const Sidemenu = () => {
         <div className=''>
           <ul>
             <li>
-              <div className='side-link'>
-                <div className='side-link-title'>
-                  <BiHomeAlt className='text-indigo-700' size={22} />
-                  <span className={`${isOpen ? 'block' : 'hidden'} duration-200`}>Home</span>
+              <Link to='/'>
+                <div className='side-link'>
+                  <div className='side-link-title'>
+                    <BiHomeAlt className='text-indigo-700' size={22} />
+                    <span className={`${isOpen ? 'block' : 'hidden'} duration-200`}>Home</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </li>
 
             <li>
-              <div className='side-link'>
-                <div className={`side-link-title`}>
-                  <BiTrendingUp className='text-indigo-700' size={22} />
-                  <span className={`${isOpen ? 'block' : 'hidden'} duration-200`}>Products</span>
+              <Link to='/product'>
+                <div className='side-link'>
+                  <div className={`side-link-title`}>
+                    <BiTrendingUp className='text-indigo-700' size={22} />
+                    <span className={`${isOpen ? 'block' : 'hidden'} duration-200`}>Products</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </li>
 
             <li>
@@ -67,6 +64,17 @@ const Sidemenu = () => {
                   <span className={`${isOpen ? 'block' : 'hidden'} duration-200`}>Sales</span>
                 </div>
               </div>
+            </li>
+
+            <li>
+              <Link to='/user'>
+                <div className='side-link'>
+                  <div className={`side-link-title`}>
+                    <BsPersonCircle className='text-indigo-700' size={22} />
+                    <span className={`${isOpen ? 'block' : 'hidden'} duration-200`}>User</span>
+                  </div>
+                </div>
+              </Link>
             </li>
 
             <li>
@@ -95,29 +103,6 @@ const Sidemenu = () => {
               </div>
             </li>
           </ul>
-
-          {/* <div>
-            <div
-              className='space-y-1'
-              onClick={() => setisClicked(!isClicked)}
-            >
-              <div className='side-link'>
-                <div className='side-link-title'>
-                  <BiTrendingUp className='text-indigo-700' size={22} />
-                  <span className={`${isOpen ? 'block' : 'hidden'} duration-200`}>C.R.M</span>
-                </div>
-                <div className={`${isClicked ? 'rotate-180' : 'rotate-0'} ${isOpen ? 'block' : 'hidden'} duration-200`}>
-                  <BiChevronDown className='text-indigo-700' size={22} />
-                </div>
-              </div>
-            </div>
-            <div className={`${isClicked ? 'opacity-100' : 'opacity-0'} duration-200`}>
-              <ul className='space-y-1 ml-7'>
-                <li className='side-link-content'>F.A.Qs</li>
-                <li className='side-link-content'>Blogs</li>
-              </ul>
-            </div>
-          </div> */}
         </div>
       </div>
     </>
